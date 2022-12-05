@@ -45,7 +45,11 @@ bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
 //END_ASYNC
 
 //START_SYNC
+const syncHash = bcrypt.hashSync(myPlaintextPassword, saltRounds);
+console.log('Sync hash: ' + syncHash);
 
+const syncRes = bcrypt.compareSync(myPlaintextPassword, syncHash);
+console.log('Sync res: ' + syncRes);
 //END_SYNC
 
 const port = process.env.PORT || 3000;
